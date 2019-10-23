@@ -1,15 +1,22 @@
 import React from 'react';
 import {Route} from "react-router-dom"
+import {connect} from "react-redux";
 import './App.css';
 import  Login  from './components/Login';
+import PrivateRoute from './components/PrivateRoute';
+import  Dashboard  from './components/DashBoard';
+import * as actionCreators from "./state/actionCreators";
 
-function App() {
+export function App(props) {
   return (
     <div className="App">
-      Hello from App!
-      <Route path="/" component={Login}/>
+      <Route exact path="/" component={Login}/>
+      <PrivateRoute
+         exact path="/dashboard"
+          component={Dashboard}
+        />
     </div>
   );
 }
 
-export default App;
+export default connect(state => state, actionCreators)(App);
