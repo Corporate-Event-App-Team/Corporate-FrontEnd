@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import uuid from "uuid";
 // import form_back from "../imgsk/form_back.jpeg";
-// import logo from "../imgs/corporate_logo.png";
+import corporate_logo from "../imgs/corporate_logo.png";
 import Axios from "axios";
 import Form from "./Form";
 
@@ -97,7 +97,7 @@ export default function Register(props) {
   return (
     <RegisterStyle>
       <nav>
-        {/* <img src={logo} alt="corporate-logo" /> */}
+        <img src={corporate_logo} alt="corporate-logo" />
         <a href="/">LOGIN</a>
       </nav>
 
