@@ -5,6 +5,7 @@ const FormStyle = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: white;
   h3 {
     margin-left: 1.7em;
   }
