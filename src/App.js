@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Route} from "react-router-dom"
+import {connect} from "react-redux";
 import './App.css';
+import  Login  from './components/Login';
+import PrivateRoute from './components/PrivateRoute';
+import  Dashboard  from './components/DashBoard';
+import * as actionCreators from "./state/actionCreators";
+import AddEvents from './components/AddEvents';
+import Register from './components/Register';
 
-function App() {
+export function App(props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Route exact path="/" component={Login}/>
+      <Route  path="/register" component={Register} />
+      <PrivateRoute
+         exact path="/dashboard"
+          component={Dashboard}
+        />
+         <Route  path="/dashboard/add-event" component={AddEvents}/>
     </div>
   );
 }
 
-export default App;
+export default connect(state => state, actionCreators)(App);
