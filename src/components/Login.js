@@ -11,7 +11,7 @@ import {
   StyledPassword,
   StyledButton
 } from "../styles";
-// import NavBar from "./NavBar";
+ import NavBar from "./NavBar";
 
 export const Login = props => {
   const [userDetails] = useState({ username: "", password: "" });
@@ -19,7 +19,7 @@ export const Login = props => {
 
   return (
     <StyledLoginDiv>
-      {/* <NavBar /> */}
+      <NavBar />
       <Formik
         initialValues={userDetails}
         validate={userDetails => {
