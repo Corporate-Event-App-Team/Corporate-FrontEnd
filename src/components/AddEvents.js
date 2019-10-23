@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-// import NavBar from "./NavBar";
+import NavBar from "./NavBar";
 import {StyledAddEvntsForm, StyledAddEvntsDiv, StyledAddEvntInpt,StyledButton} from "../styles";
 import {connect} from "react-redux";
 import * as actionCreators from "../state/actionCreators";
@@ -35,7 +35,7 @@ const [eventBody, setEventBody] = useState({
 
     return (
         <StyledAddEvntsDiv>
-            {/* <NavBar/> */}
+            <NavBar/>
             <StyledAddEvntsForm>
                 <label>Budget</label>
                 <StyledAddEvntInpt value={eventBody.budget} name="budget" onChange={valueChange}/>
