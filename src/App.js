@@ -7,11 +7,13 @@ import PrivateRoute from './components/PrivateRoute';
 import  Dashboard  from './components/DashBoard';
 import * as actionCreators from "./state/actionCreators";
 import AddEvents from './components/AddEvents';
+import Register from './components/Register';
 
 export function App(props) {
   return (
     <div className="App">
       <Route exact path="/" component={Login}/>
+      <Route  path="/register" component={Register} />
       <PrivateRoute
          exact path="/dashboard"
           component={Dashboard}
