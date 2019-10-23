@@ -6,6 +6,7 @@ import  Login  from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
 import  Dashboard  from './components/DashBoard';
 import * as actionCreators from "./state/actionCreators";
+import AddEvents from './components/AddEvents';
 
 export function App(props) {
   return (
@@ -15,6 +16,7 @@ export function App(props) {
          exact path="/dashboard"
           component={Dashboard}
         />
+         <Route  path="/dashboard/add-event" component={AddEvents}/>
     </div>
   );
 }
