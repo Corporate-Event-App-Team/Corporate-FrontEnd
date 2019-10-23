@@ -1,7 +1,8 @@
 import * as types from "./actionTypes";
 import axios from "axios";
-// import { NotificationManager } from "react-notifications";
 import axiosWithAuth from "../axios/axiosWithAuth";
+import { store } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
 
 export const getError = err => {
   return { type: types.GET_ERROR, payload: err };
@@ -15,7 +16,17 @@ export const onLogin = (userDetails, props) => dispatch => {
     )
     .then(res => {
       console.log("response from login endpoint", res);
-      // NotificationManager.success(res.data.message, "Login successful!");
+      store.addNotification({
+        title: "Login successful!",
+        message: res.data.message,
+        type: 'success',                         // 'default', 'success', 'info', 'warning'
+        container: 'top-right',                // where to position the notifications
+        animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+        animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+        dismiss: {
+          duration: 3000 
+        }
+      })
       dispatch({
         type: types.ON_LOGIN,
         payload: { token: res.data.token, username: userDetails.username }
@@ -24,7 +35,17 @@ export const onLogin = (userDetails, props) => dispatch => {
     })
     .catch(err => {
       console.log("response from login endpoint", err);
-      // NotificationManager.error(err.message, "Something went terribly wrong");
+      store.addNotification({
+        title: "Something went terribly wrong",
+        message: err.message,
+        type: 'danger',                         // 'default', 'success', 'info', 'warning'
+        container: 'top-right',                // where to position the notifications
+        animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+        animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+        dismiss: {
+          duration: 3000 
+        }
+      })
       dispatch(getError(err.message));
     });
 };
@@ -46,7 +67,6 @@ export const getUser = props => dispatch => {
     })
     .catch(err => {
       console.log("response from users endpoint", err);
-      // NotificationManager.error(err.message, "Something went terribly wrong");
       dispatch(getUserError(err.message));
     });
 };
@@ -66,14 +86,9 @@ export const showUser = props => dispatch => {
     })
     .catch(err => {
       console.log("response from users endpoint", err);
-      // NotificationManager.error(err.message, "Something went terribly wrong");
       dispatch(getUserError(err.message));
     });
 };
-
-// export const addEvent = (event) => {
-//   return {type: types.ADD_EVENT, payload: event}
-// }
 
 export const AddEventError = err => {
   return { type: types.ADD_EVENT_ERROR, payload: err };
@@ -95,7 +110,6 @@ export const AddEvent = (props, eventBody) => dispatch => {
     })
     .catch(err => {
       console.log("response from add endpoint", eventBody, err);
-      // NotificationManager.error(err.message, "Something went terribly wrong");
       dispatch(getUserError(err.message));
     });
 };

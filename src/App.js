@@ -8,10 +8,12 @@ import  Dashboard  from './components/DashBoard';
 import * as actionCreators from "./state/actionCreators";
 import AddEvents from './components/AddEvents';
 import Register from './components/Register';
+import ReactNotification from 'react-notifications-component'
 
 export function App(props) {
   return (
     <div className="App">
+      <ReactNotification />
       <Route exact path="/" component={Login}/>
       <Route  path="/register" component={Register} />
       <PrivateRoute

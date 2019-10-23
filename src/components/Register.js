@@ -6,6 +6,8 @@ import uuid from "uuid";
 import corporate_logo from "../imgs/corporate_logo.png";
 import Axios from "axios";
 import Form from "./Form";
+import { store } from 'react-notifications-component';
+
 
 
 const RegisterStyle = styled.div`
@@ -77,6 +79,17 @@ export default function Register(props) {
        { username:formValues.username, password: formValues.password}
         )
         .then(response => {
+            store.addNotification({
+                title: "Success!",
+                message: "you have been registered",
+                type: 'success',                         // 'default', 'success', 'info', 'warning'
+                container: 'top-right',                // where to position the notifications
+                animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+                animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+                dismiss: {
+                  duration: 3000 
+                }
+              })
           // NotificationManager.success("Registration successful");
           console.log("response from Register endpoint",response);
           props.history.push("/");
@@ -86,6 +99,17 @@ export default function Register(props) {
           //   err.message,
           //   "Something went terribly wrong!"
           // );
+          store.addNotification({
+            title: "Something went terribly wrong",
+            message: err.message,
+            type: 'danger',                         // 'default', 'success', 'info', 'warning'
+            container: 'top-right',                // where to position the notifications
+            animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+            animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+            dismiss: {
+              duration: 3000 
+            }
+          })
           console.log("error from Register endpoint",err);
         });
     } else {

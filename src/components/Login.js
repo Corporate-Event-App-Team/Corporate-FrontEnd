@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 import * as actionCreators from "../state/actionCreators";
 import { Formik } from "formik";
 // import { NotificationManager } from "react-notifications";
+import { store } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
+import 'animate.css';
 
 import {
   StyledLoginDiv,
@@ -89,7 +92,17 @@ export const Login = props => {
             </span>
             <StyledButton
               type="submit"
-              // onClick={() => NotificationManager.info("A moment while we check your details")}
+              onClick={() => {store.addNotification({
+                title: 'Trying to login?',
+                message: 'A moment while we check your details',
+                type: 'info',                         // 'default', 'success', 'info', 'warning'
+                container: 'top-right',                // where to position the notifications
+                animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+                animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+                dismiss: {
+                  duration: 3000 
+                }
+              })}}
               disabled={isSubmitting}
             >
               Submit
