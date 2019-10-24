@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../state/actionCreators";
 import AddEvents from "./AddEvents";
-import { StyledShowEvent, StyledEventCard} from "../styles";
+import { StyledShowEvent, StyledEventCard, StyledEventButton} from "../styles";
 import events_icon_2 from "../imgs/events_icon_2.gif";
 import edit_icon from "../imgs/edit_icon.png";
 import  delete_icon from "../imgs/delete_icon.png";
 import NavBar from "./NavBar";
+import {NavLink} from "react-router-dom";
 
 export function Event(props) {
   let userEvents = JSON.parse(window.localStorage.getItem("userEvents"));
@@ -31,10 +32,11 @@ export function Event(props) {
     editing
   } = props;
   return (<div style={{width:"98vw"}}>
-    <NavBar/>
     <StyledShowEvent>
+    <NavBar/>
       {!editing && (
         <StyledEventCard>
+            <NavLink style={{textDecoration:"none",  height: "3vh", color: "white", padding:"1em", background:"#090429"}} to="/dashboard">{`<`}</NavLink>
           <img src={events_icon_2} alt="event-logo" />
           <div>
             <h6>Name of Event: {event.eventName}</h6>
@@ -62,16 +64,16 @@ export function Event(props) {
           </div>
 
           <div>
-            <button
+            <StyledEventButton
               onClick={() =>
                 editEvent(props, event, setEventBody, setStorageEvent)
               }
             >
-                edit
-            </button>
-            <button onClick={() => deleteEvent(props, event, setStorageEvent)}>
-              delete
-            </button>
+            <img style={{width:"2vw", height:"4vh"}} alt="StyledEventButton icon" src={edit_icon}/>
+            </StyledEventButton>
+            <StyledEventButton onClick={() => deleteEvent(props, event, setStorageEvent)}>
+            <img style={{width:"2vw", height:"4vh"}} alt="button icon" src={delete_icon}/>
+            </StyledEventButton>
           </div>
         </StyledEventCard>
       )}

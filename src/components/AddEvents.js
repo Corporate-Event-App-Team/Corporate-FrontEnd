@@ -1,9 +1,11 @@
 import React, {useState} from "react";
 import NavBar from "./NavBar";
-import {StyledAddEvntsForm, StyledAddEvntsDiv, StyledAddEvntInpt,StyledButton} from "../styles";
+import {StyledAddEvntsForm,StyledAddEventsCont, StyledImgAddEvent, StyledAddEvntsDiv, StyledAddEvntInpt,StyledButton} from "../styles";
 import {connect} from "react-redux";
 import * as actionCreators from "../state/actionCreators";
 import uuid from "uuid";
+import login_back from "../imgs/login_back.jpg";
+import {NavLink} from "react-router-dom";
 
 
 const AddEvents = (props) => {
@@ -41,7 +43,13 @@ const AddEvents = (props) => {
     return (
         <StyledAddEvntsDiv>
             <NavBar/>
+            <StyledAddEventsCont>
+            <StyledImgAddEvent>
+                 <img alt="people talking" src={login_back}/> 
+            </StyledImgAddEvent>
             <StyledAddEvntsForm>
+                <NavLink style={{textDecoration:"none", color: "white", padding:"1em", background:"#090429"}} to="/dashboard">{`<`}</NavLink>
+                <h4>Edit or add a new event</h4>
                 <label>Budget</label>
                 <StyledAddEvntInpt value={eventBody.budget} name="budget" onChange={valueChange}/>
                 <label> Client Company Name </label>
@@ -58,8 +66,9 @@ const AddEvents = (props) => {
                 <StyledAddEvntInpt type="date" value={eventBody.date} name="date" onChange={valueChange}/>
                 <label>Time Due</label>
                 <StyledAddEvntInpt  value={eventBody.time} name="time" onChange={valueChange}/>
-                <StyledButton onClick={submitEvent}>{props.editing ? "Edit Event" : "Add Event" }</StyledButton>
+                <StyledButton onClick={submitEvent}>Submit</StyledButton>
             </StyledAddEvntsForm>
+            </StyledAddEventsCont>
         </StyledAddEvntsDiv>
     )
 }

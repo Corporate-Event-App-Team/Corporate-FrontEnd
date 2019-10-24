@@ -2,10 +2,7 @@ import styled from "styled-components";
 import login_back from "./imgs/login_back.jpg";
 
 export const StyledLoginDiv = styled.div`
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.3),
-      rgba(255, 255, 255, 0.3)
-    ),
+  background-image: 
     url(${login_back});
   background-size: cover;
   width: 100vw;
@@ -17,52 +14,34 @@ export const StyledForm = styled.form`
   flex-direction: column;
   padding-top: 1vw;
   align-items: center;
-  color: #3aa9cf;
-  width: 40vw;
+  color: #01233F;
+  width: 30vw;
   margin-left: 30vw;
   margin-top: 1em;
-  /* background-color: white; */
-  border: 0.5em solid rgba(255, 255, 255, 0.3);
+background-color: white; 
+  /* border: 0.5em solid rgba(255, 255, 255, 0.3); */
 `;
 
 export const StyledInput = styled.input`
-  border: none;
-  border-bottom: 2px solid white;
-  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid #01233F;
   padding: 0.5em;
-  border-radius: 1em;
-  background-size: 20%;
-  background-repeat: no-repeat;
-  text-indent: 20px;
-  :hover {
-    background-image: none;
-  }
+  
 `;
 
 export const StyledPassword = styled.input`
-  border: none;
-  border-bottom: 2px solid white;
-  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid #01233F;
   padding: 0.5em;
-  border-radius: 1em;
-  background-size: 20%;
-  background-repeat: no-repeat;
-  text-indent: 20px;
-  :hover {
-    background-image: none;
-  }
 `;
 
 export const StyledButton = styled.button`
   margin: 1em;
   padding: 0.7em;
-  background-color: #3aa9cf;
+  background-color: #01233F;
   border: none;
-  border-radius: 1em;
   width: 13vw;
   color: aliceblue;
   :hover {
-    background: #fc6567;
+    background: #FFC038;
   }
 `;
 
@@ -79,6 +58,7 @@ export const StyledNavBar = styled.div`
   justify-content: space-between;
   align-items: center;
   background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 6px -6px black;
 `;
 
 export const StyledFigure = styled.figure`
@@ -86,7 +66,7 @@ export const StyledFigure = styled.figure`
 `;
 
 export const StyledRegisterBtn = styled.button`
-  border-radius: 0.5em;
+
   border: none;
   margin-bottom: 0.7em;
   margin-right: 1em;
@@ -146,32 +126,42 @@ export const StyledAddEvntsForm = styled.form`
   flex-direction: column;
   padding-top: 1vw;
   align-items: center;
-  border: 0.5em solid rgba(255, 255, 255, 0.3);
-  width: 40vw;
-  margin-left: 30vw;
+  width: 100%;
+  height: 100%;
   margin-top: 1em;
 `;
 
 export const StyledAddEvntsDiv = styled.div`
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.3),
-      rgba(255, 255, 255, 0.3)
-    ),
-    url(${login_back});
-  background-size: cover;
-  color: #4ea6b8;
+  color: #090429;
   font-weight: bold;
   width: 100vw;
   height: 150vh;
 `;
 
 export const StyledAddEvntInpt = styled.input`
-  border: none;
-  background-color: rgba(255, 255, 255, 0.3);
+   border: 1px solid #090429;
   padding: 0.5em;
-  border-radius: 1em;
+  /* border-radius: 1em; */
+  width: 40%;
   margin: 0.5em;
   padding: 1em;
+`;
+
+
+export const StyledAddEventsCont = styled.div`
+    display: flex;
+    width:100%;
+    height: 100%;
+`;
+export const StyledImgAddEvent = styled.div`
+    width:100%;
+    height:100%;
+    margin-top: 1em;
+   img {
+       width:100%;
+       height:100%;
+       object-fit:fill;
+   }
 `;
 
 export const StyledDashEventDiv = styled.div`
@@ -186,14 +176,36 @@ export const StyledShowEvent = styled.div`
   width: 100vw;
   height: 100vh;
   align-items: center;
-  display: flex;
+  /* display: flex; */
 `;
 export const StyledEventCard = styled.div`
     display: flex;
     background-color: white;
+    color: #090429;
     padding: 2em;
     width: 80vw;
     margin-left: 10vw;
-    /* margin-top: 10vw; */
+    margin-top: 20vh;
 
+`;
+
+export const StyledEventButton = styled.button`
+    padding:0.5em;
+    margin: 0.5em;
+    margin-top: 2em;
+    margin-left: 1em;
+    background-color: white;
+    border: none;
+`;
+
+export const StyledViewEvent = styled.button`
+    margin-top: 2em;
+    margin-left: 1em;
+    background-color: #090429;
+    :hover {
+    background-color: #FBAB06;
+
+    }
+    border: none;
+    padding:0.5em;
 `;
