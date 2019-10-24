@@ -8,9 +8,9 @@ import {
   StyledDashEventDiv
 } from "../styles";
 import { NavLink } from "react-router-dom";
-
 import { connect } from "react-redux";
 import * as actionCreators from "../state/actionCreators";
+import DummyEvents from "./DummyEvents";
 
 export const Dashboard = props => {
   console.log("props from Dashboard", props);
@@ -33,7 +33,8 @@ export const Dashboard = props => {
         <StyledH4>Past Events</StyledH4>
         <div>
           {userEvents.length === 0 ? (
-            <h4>You don't have any events</h4>
+              <DummyEvents/>
+            // <h4>You don't have any events</h4>
           ) : (
             userEvents.map(event => {
               return (
