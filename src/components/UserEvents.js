@@ -1,19 +1,20 @@
 import React from "react";
-import { dummyEventData } from "./data";
+import {connect} from "react-redux";
+import * as actionCreators from "../state/actionCreators";
+import events_icon_2 from "../imgs/events_icon_2.gif";
 import styled from "styled-components";
+import {withRouter} from "react-router-dom"
 
 const StyledDummyDiv = styled.div`
   font-size: 0.7em;
   line-height: 0.3em;
   display: flex;
-  /* justify-content: space-around; */
-  /* text-align: center; */
   margin: 0.6em;
   padding: 0.5em;
   background: white;
   border: 0.3em solid #fbab06;
-   width: 45vw; 
-  margin-left: 10vw;
+   width: 50vw; 
+  margin-left: 4vw;
 `;
 const StyledDummyTextDiv = styled.div`
   display: flex;
@@ -23,20 +24,34 @@ const StyledDummyTextDiv = styled.div`
 
 `;
 
-const DummyEvents = () => {
-  console.log("dummy event data", dummyEventData);
+
+
+const UserEvents = (props) => {
+  console.log("Event data", props);
+    console.log("local storage events",);
+
+    const viewCard  = (event) => (e) => {
+        e.preventDefault();
+        // props.setEvent(event);
+        props.history.push(`/dashboard/event/${event.eventId}`)
+    }
+
+    // function onEventClick(event) {
+    //     props.setEvent(event);
+    //     props.history.push(`/events/${event.eventId}`)
+    // }
 
   return (
     <div>
-      This is what your events will look like! Click Add events to track your
-      own events.
-      {dummyEventData.map(event => {
+      {props.userEvents.map(event => {
         return (
-          <StyledDummyDiv key={event.eventId}>
+          <StyledDummyDiv key={event.eventId} 
+        //   onClick={() => viewCard(event)}
+           >
             <img
               style={{ width: "15vw", height: "17vh" }}
               alt="event pictures"
-              src={event.pictures}
+              src={events_icon_2}
             />
             <StyledDummyTextDiv>
               <div  style={{padding:"0.5em", margin:"0.5em"}}>
@@ -48,24 +63,8 @@ const DummyEvents = () => {
                 <h4>Description: {event.description}</h4>
                 <h4>Budget: {event.budget}</h4>
               </div>
-              {/* <div style={{padding:"0.5em", margin:"0.5em"}}>
-                TodoList:{" "}
-                {event.todoList.map((todo, index) => (
-                  <h4 key={index}>
-                    {index + 1}. {todo}
-                  </h4>
-                ))}
-              </div>
-              <div style={{padding:"0.5em", margin:"0.5em"}}>
-                Vendors:{" "}
-                {event.vendors.map((vendor, index) => (
-                  <h4 key={index}>
-                    {index + 1}. {vendor}
-                  </h4>
-                ))}
-              </div>
-                 */}
             </StyledDummyTextDiv>
+            <button style={{width: "5vw", height: "5vh"}} onClick={viewCard(event)}>View Event</button>
           </StyledDummyDiv>
         );
       })}
@@ -73,4 +72,4 @@ const DummyEvents = () => {
   );
 };
 
-export default DummyEvents;
+export default connect(state => state, actionCreators)(withRouter(UserEvents));

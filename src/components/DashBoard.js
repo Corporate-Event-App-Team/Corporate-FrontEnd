@@ -11,16 +11,19 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreators from "../state/actionCreators";
 import DummyEvents from "./DummyEvents";
+import UserEvents from "./UserEvents";
+
 
 export const Dashboard = props => {
   console.log("props from Dashboard", props);
-  const {getUser,showUser,login,user} = props;
+  let userEvents  = JSON.parse(window.localStorage.getItem("userEvents"));
+  const {getUser,login,user,events} = props;
+  
   useEffect(() => {
-    getUser(login.username);
-    showUser(user.id);
-  }, [login,user, getUser,showUser]);
+      getUser(login.username);
+    }, [login,user, getUser]);
 
-  const userEvents = props.events.events;
+    // const userEvents = events.events;
   console.log("userevents", userEvents);
   return (
     <StyledDashboard>
@@ -32,23 +35,13 @@ export const Dashboard = props => {
       <StyledDashEventDiv>
         <StyledH4>Past Events</StyledH4>
         <div>
-          {userEvents.length === 0 ? (
+          {userEvents === null ? (
               <DummyEvents/>
-            // <h4>You don't have any events</h4>
           ) : (
-            userEvents.map(event => {
-              return (
-                <div key={event.id}>
-                  <h4>Budget: {event.budget}</h4>
-                  <h4>Company: {event.company}</h4>
-                  <h4>Description: {event.description}</h4>
-                </div>
-              );
-            })
+              <UserEvents userEvents={userEvents}/>
+            
           )}
         </div>
-        {/* <StyledH4>Present Events</StyledH4>
-        <div>Events from Backend</div> */}
         <NavLink to="/dashboard/add-event">
           <StyledAddEventBtn>Add a new event</StyledAddEventBtn>
         </NavLink>

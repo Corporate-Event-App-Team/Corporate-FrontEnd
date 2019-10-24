@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-// import { NotificationManager } from "react-notifications";
 import styled from "styled-components";
 import uuid from "uuid";
-// import form_back from "../imgsk/form_back.jpeg";
 import corporate_logo from "../imgs/corporate_logo.png";
 import Axios from "axios";
 import Form from "./Form";
@@ -90,15 +88,10 @@ export default function Register(props) {
                   duration: 3000 
                 }
               })
-          // NotificationManager.success("Registration successful");
           console.log("response from Register endpoint",response);
           props.history.push("/");
         })
         .catch(err => {
-          // NotificationManager.error(
-          //   err.message,
-          //   "Something went terribly wrong!"
-          // );
           store.addNotification({
             title: "Something went terribly wrong",
             message: err.message,

@@ -1,7 +1,9 @@
 import * as types from "./actionTypes";
-import uuid from "uuid";
+// import uuid from "uuid";
+
+
 const initialToken = {
-  token: "", 
+  token: "",
   username: ""
 };
 
@@ -18,37 +20,34 @@ export const loginReducer = (state = initialToken, action) => {
   }
 };
 
-const initialEvents = {
-  events: [
-    {
-      eventId: '',
-      eventName: '',
-      descriptionOfEvent: '',
-      date: '',
-      time: '',
-      todoList: [],
-      vendors: []
-    }
-  ]
-}
+// const initialEvents = {
+//   events: [
+//     {
+//       eventId: '',
+//       eventName: '',
+//       descriptionOfEvent: '',
+//       date: '',
+//       time: '',
+//       todoList: [],
+//       vendors: []
+//     }
+//   ]
+// }
 
 const initialEvent = {
-  event : {
-    budget: "",
-    description: "",
-    events_id: uuid()
-  }
-}
+  event: {}
+};
 
-export function addEventReducer(state=initialEvent, action) {
-  switch(action.type) {
-    case types.ADD_EVENT: 
-    return {
-      ...state, event : action.payload
-    };
+export function addEventReducer(state = initialEvent, action) {
+  switch (action.type) {
+    case types.ADD_EVENT:
+      return {
+        ...state,
+        event: action.payload
+      };
 
-    default: 
-    return state;
+    default:
+      return state;
   }
 }
 
@@ -56,24 +55,53 @@ const loggedInUser = {
   user: {}
 };
 
-export const userReducer = (state=loggedInUser,action) => {
-  switch(action.type) {
-    case types.GET_USER: 
-    return {...state, user: action.payload};
+export const userReducer = (state = loggedInUser, action) => {
+  switch (action.type) {
+    case types.GET_USER:
+      return { ...state, user: action.payload };
     default:
       return state;
   }
-}
-
-const userEvents = {
-  events: []
 };
 
-export const userEventsReducer = (state=userEvents,action) => {
-  switch(action.type) {
-    case types.SHOW_USER: 
-    return {...state, events: action.payload};
+const userEvents = {
+  events: [],
+  setEvents: []
+};
+
+export const userEventsReducer = (state = userEvents, action) => {
+  switch (action.type) {
+    case types.SHOW_USER:
+      return {
+        ...state,
+        events: [...state.events, action.payload],
+      };
+
+    case types.DELETE_EVENT:
+      return {
+        ...state,
+        events: state.events.filter(event => event !== action.payload)
+      };
+
     default:
       return state;
   }
-}
+};
+
+const initialEditingState = { 
+  editing: false,
+  event: {} 
+};
+
+export const editReducer = (state = initialEditingState, action) => {
+  switch (action.type) {
+    case types.EDIT_EVENT:
+      return { ...state, editing: true };
+
+    case types.SET_EVENT: 
+    return { ...state, event: action.payload}
+
+    default:
+      return state;
+  }
+};
