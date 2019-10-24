@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../state/actionCreators";
 import { Formik } from "formik";
-// import { NotificationManager } from "react-notifications";
 import { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';

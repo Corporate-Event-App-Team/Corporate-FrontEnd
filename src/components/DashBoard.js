@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-// import user_icon_2 from "../imgs/user_icon_2.png";
+ import user_icon_2 from "../imgs/user_icon_2.png";
 import {
   StyledDashboard,
   StyledUSerDiv,
@@ -26,7 +26,7 @@ export const Dashboard = props => {
     <StyledDashboard>
       <StyledUSerDiv>
           <h4>Welcome to the Corporate Event Planner Dashboard</h4>
-        {/* <img alt="user icon" src={user_icon_2} /> */}
+        <img alt="user icon" src={user_icon_2} />
         <h4>Hello, {login.username}</h4>
       </StyledUSerDiv>
       <StyledDashEventDiv>
