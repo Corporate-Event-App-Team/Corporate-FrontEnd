@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../state/actionCreators";
 import AddEvents from "./AddEvents";
@@ -17,7 +17,7 @@ export function Event(props) {
     eventTodolist,
     eventVendors
   );
-  const { editEvent, deleteEvent,setEventBody, setStorageEvent, editing } = props;
+  const { editEvent, deleteEvent,setEventBody, eventBody, setStorageEvent, editing } = props;
   return (
     <div style={{ color: "white" }}>
       Hello from Individual event!
@@ -61,10 +61,16 @@ export function Event(props) {
 }
 
 function Todo({ todo, indx }) {
+  const [clickValue, setClickValue] = useState(false);
+  function onClickStyle() {
+    setClickValue(!clickValue)
+  }
   
+  const style = clickValue ? {textDecoration: "line-through"} : {textDecoration: "none"}
+
   return (
     <div>
-      <h6>
+      <h6 style={style} onClick={onClickStyle} > 
         {" "}
         {indx + 1}.{todo}
       </h6>

@@ -20,10 +20,22 @@ const AddEvents = (props) => {
     };
 
     const submitEvent = (e) => {
-        e.preventDefault();
+         e.preventDefault();
         props.AddEvent(props,eventBody)
         props.showUser(eventBody);
         setStorageEvent([...storageEvent,addedEvent])
+        setEventBody({
+            eventId: uuid(),
+            eventName: "",
+            description: "",
+            date: "",
+            time: "",
+            client: "",
+            todoList: [],
+            vendors: [],
+            pictures: "",
+            budget: ""
+          });
     }
 
     return (

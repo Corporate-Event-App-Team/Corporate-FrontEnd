@@ -128,6 +128,11 @@ export const deleteEvent = (props, event, setStorageEvent) => {
 export const editEvent = (props, event, setEventBody,setStorageEvent) => {
   props.history.replace("/dashboard/add-event");
   setEventBody(event);
+  let userEvents = JSON.parse(window.localStorage.getItem("userEvents"));
+  let nonEditedevents = userEvents.filter(
+    foundEvent => foundEvent.eventId !== event.eventId
+  );
+  setStorageEvent(nonEditedevents);
   return { type: types.EDIT_EVENT };
 };
 
