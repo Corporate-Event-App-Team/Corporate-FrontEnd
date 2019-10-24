@@ -5,13 +5,20 @@ import corporate_logo from "../imgs/corporate_logo.png";
 import Axios from "axios";
 import Form from "./Form";
 import { store } from 'react-notifications-component';
+import register_back from "../imgs/register_back.jpg"
 
 
 
 const RegisterStyle = styled.div`
-  height: 100vh;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.3), 
+    rgba(255, 255, 255, 0.3)
+    ),
+url(${register_back});
   background-size: cover;
   width: 100vw;
+  height: 100vh;
+  
 
   nav {
     display: flex;
@@ -45,7 +52,6 @@ const RegisterStyle = styled.div`
     width: 50vw;
     margin-left: 25vw;
     margin-top: 1em;
-  border: 0.5em solid rgba(255, 255, 255, 0.3);
     section {
       text-align: center;
 

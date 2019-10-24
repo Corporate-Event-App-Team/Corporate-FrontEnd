@@ -54,6 +54,10 @@ const AddEvents = (props) => {
                 <StyledAddEvntInpt value={eventBody.todoList} name="todoList" onChange={valueChange}/>
                 <label>Vendors</label>
                 <StyledAddEvntInpt value={eventBody.vendors} name="vendors" onChange={valueChange}/>
+                <label>Date Due</label>
+                <StyledAddEvntInpt type="date" value={eventBody.date} name="date" onChange={valueChange}/>
+                <label>Time Due</label>
+                <StyledAddEvntInpt  value={eventBody.time} name="time" onChange={valueChange}/>
                 <StyledButton onClick={submitEvent}>{props.editing ? "Edit Event" : "Add Event" }</StyledButton>
             </StyledAddEvntsForm>
         </StyledAddEvntsDiv>

@@ -1,6 +1,12 @@
 import styled from "styled-components";
+import login_back from "./imgs/login_back.jpg";
 
 export const StyledLoginDiv = styled.div`
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url(${login_back});
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -11,10 +17,11 @@ export const StyledForm = styled.form`
   flex-direction: column;
   padding-top: 1vw;
   align-items: center;
-  color: white;
+  color: #3aa9cf;
   width: 40vw;
   margin-left: 30vw;
   margin-top: 1em;
+  /* background-color: white; */
   border: 0.5em solid rgba(255, 255, 255, 0.3);
 `;
 
@@ -102,7 +109,8 @@ export const StyledDashboard = styled.div`
 export const StyledUSerDiv = styled.div`
   width: 25vw;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.3);
+  background: #090429;
+  color: white;
   box-shadow: 0 +6px 8px 6px lightblue;
   h4 {
     margin-top: 8vw;
@@ -122,7 +130,7 @@ export const StyledH4 = styled.h4`
 `;
 
 export const StyledAddEventBtn = styled.button`
-  background: #fbab06;
+  background: #090429;
   color: white;
   width: 15vw;
   padding: 0.8em;
@@ -138,7 +146,6 @@ export const StyledAddEvntsForm = styled.form`
   flex-direction: column;
   padding-top: 1vw;
   align-items: center;
-  color: white;
   border: 0.5em solid rgba(255, 255, 255, 0.3);
   width: 40vw;
   margin-left: 30vw;
@@ -146,9 +153,16 @@ export const StyledAddEvntsForm = styled.form`
 `;
 
 export const StyledAddEvntsDiv = styled.div`
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url(${login_back});
   background-size: cover;
+  color: #4ea6b8;
+  font-weight: bold;
   width: 100vw;
-  height: 100vh;
+  height: 150vh;
 `;
 
 export const StyledAddEvntInpt = styled.input`
@@ -161,8 +175,25 @@ export const StyledAddEvntInpt = styled.input`
 `;
 
 export const StyledDashEventDiv = styled.div`
-  background: rgba(255, 255, 255, 0.3);
-
+  background: #fbab06;
   width: 80vw;
   height: 100vh;
+`;
+
+export const StyledShowEvent = styled.div`
+  /* color: white; */
+  background-color: #FBAB06;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  display: flex;
+`;
+export const StyledEventCard = styled.div`
+    display: flex;
+    background-color: white;
+    padding: 2em;
+    width: 80vw;
+    margin-left: 10vw;
+    /* margin-top: 10vw; */
+
 `;
