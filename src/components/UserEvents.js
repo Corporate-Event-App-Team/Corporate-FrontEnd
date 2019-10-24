@@ -3,7 +3,8 @@ import {connect} from "react-redux";
 import * as actionCreators from "../state/actionCreators";
 import events_icon_2 from "../imgs/events_icon_2.gif";
 import styled from "styled-components";
-import {withRouter} from "react-router-dom"
+import {withRouter} from "react-router-dom";
+import {StyledViewEvent} from "../styles";
 
 const StyledDummyDiv = styled.div`
   font-size: 0.7em;
@@ -64,7 +65,7 @@ const UserEvents = (props) => {
                 <h4>Budget: {event.budget}</h4>
               </div>
             </StyledDummyTextDiv>
-            <button style={{width: "5vw", height: "5vh"}} onClick={viewCard(event)}>View Event</button>
+            <StyledViewEvent style={{color: "white", width: "10vw", height: "5vh"}} onClick={viewCard(event)}>View Event</StyledViewEvent>
           </StyledDummyDiv>
         );
       })}

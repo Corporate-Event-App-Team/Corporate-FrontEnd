@@ -10,10 +10,7 @@ import register_back from "../imgs/register_back.jpg"
 
 
 const RegisterStyle = styled.div`
-  background-image: linear-gradient(
-    rgba(255, 255, 255, 0.3), 
-    rgba(255, 255, 255, 0.3)
-    ),
+  background-image:
 url(${register_back});
   background-size: cover;
   width: 100vw;
@@ -24,6 +21,7 @@ url(${register_back});
     display: flex;
     justify-content: space-between;
     background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 6px -6px black;
 
     img {
       width: 5%;
@@ -31,14 +29,14 @@ url(${register_back});
     a {
       background-color: #090429;
       text-decoration: none;
-      border-radius: 5px;
-      width: 120px;
-      height: 35px;
+      /* border-radius: 5px; */
+      width: 100px;
+      height: 27px;
       text-align: center;
       margin-top: 12px;
       margin-bottom: 12px;
       margin-right: 15px;
-      padding-top: 10px;
+      padding: 5px;
       color: white;
       &:hover {
         background-color: #fbab06;
