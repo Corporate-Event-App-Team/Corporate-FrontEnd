@@ -28,12 +28,12 @@ export const Dashboard = props => {
   return (
     <StyledDashboard>
       <StyledUSerDiv>
-          <h4>Welcome to the Corporate Event Planner Dashboard</h4>
+          <h4>Welcome to the Corporate<br/> Event Planner Dashboard</h4>
         <img alt="user icon" src={user_icon_2} />
         <h4>Hello, {login.username}</h4>
       </StyledUSerDiv>
       <StyledDashEventDiv>
-        <StyledH4>Past Events</StyledH4>
+        <StyledH4>Events</StyledH4>
         <div>
           {userEvents === null ? (
               <DummyEvents/>

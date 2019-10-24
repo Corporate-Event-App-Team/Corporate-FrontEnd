@@ -52,7 +52,7 @@ export function App(props) {
       />
       <Route
         path="/dashboard/event/:id"
-        render={props => <Event {...props} setEventBody={setEventBody} setStorageEvent={setStorageEvent} />}
+        render={props => <Event {...props} eventBody={eventBody} setEventBody={setEventBody} setStorageEvent={setStorageEvent} />}
       />
     </div>
   );

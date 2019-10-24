@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const FormStyle = styled.form`
+  border: 0.5em solid rgba(255, 255, 255, 0.3);
+  margin-left: 7vw;
+  padding: 2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
