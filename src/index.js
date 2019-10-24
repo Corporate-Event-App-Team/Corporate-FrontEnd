@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { combineReducers, createStore, applyMiddleware, compose } from "redux";
+import { combineReducers, createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -20,9 +21,8 @@ const monsterReducer = combineReducers({
 const store = createStore(
   monsterReducer,
   {},
-  compose(
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  composeWithDevTools(
+    applyMiddleware(thunk)
   )
 );
 
