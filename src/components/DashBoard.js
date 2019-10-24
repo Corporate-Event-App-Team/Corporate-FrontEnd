@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-// import user_icon_2 from "../imgs/user_icon_2.png";
+ import user_icon_2 from "../imgs/user_icon_2.png";
 import {
   StyledDashboard,
   StyledUSerDiv,
@@ -8,9 +8,9 @@ import {
   StyledDashEventDiv
 } from "../styles";
 import { NavLink } from "react-router-dom";
-
 import { connect } from "react-redux";
 import * as actionCreators from "../state/actionCreators";
+import DummyEvents from "./DummyEvents";
 
 export const Dashboard = props => {
   console.log("props from Dashboard", props);
@@ -26,14 +26,15 @@ export const Dashboard = props => {
     <StyledDashboard>
       <StyledUSerDiv>
           <h4>Welcome to the Corporate Event Planner Dashboard</h4>
-        {/* <img alt="user icon" src={user_icon_2} /> */}
+        <img alt="user icon" src={user_icon_2} />
         <h4>Hello, {login.username}</h4>
       </StyledUSerDiv>
       <StyledDashEventDiv>
         <StyledH4>Past Events</StyledH4>
         <div>
           {userEvents.length === 0 ? (
-            <h4>You don't have any events</h4>
+              <DummyEvents/>
+            // <h4>You don't have any events</h4>
           ) : (
             userEvents.map(event => {
               return (
