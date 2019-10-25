@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../state/actionCreators";
 import { Formik } from "formik";
-import { store } from 'react-notifications-component';
-import 'react-notifications-component/dist/theme.css';
-import 'animate.css';
+import { store } from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
+import "animate.css";
 
 import {
   StyledLoginDiv,
@@ -13,11 +13,10 @@ import {
   StyledPassword,
   StyledButton
 } from "../styles";
- import NavBar from "./NavBar";
+import NavBar from "./NavBar";
 
 export const Login = props => {
   const [userDetails] = useState({ username: "", password: "" });
-  console.log("props from redux Store", props);
 
   return (
     <StyledLoginDiv>
@@ -39,7 +38,7 @@ export const Login = props => {
           return errors;
         }}
         onSubmit={(userDetails, actions) => {
-          props.onLogin(userDetails,props);
+          props.onLogin(userDetails, props);
           actions.resetForm();
         }}
       >
@@ -91,17 +90,19 @@ export const Login = props => {
             </span>
             <StyledButton
               type="submit"
-              onClick={() => {store.addNotification({
-                title: 'Trying to login?',
-                message: 'A moment while we check your details',
-                type: 'info',                         // 'default', 'success', 'info', 'warning'
-                container: 'top-right',                // where to position the notifications
-                animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
-                animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
-                dismiss: {
-                  duration: 3000 
-                }
-              })}}
+              onClick={() => {
+                store.addNotification({
+                  title: "Trying to login?",
+                  message: "A moment while we check your details",
+                  type: "info", // 'default', 'success', 'info', 'warning'
+                  container: "top-right", // where to position the notifications
+                  animationIn: ["animated", "fadeIn"], // animate.css classes that's applied
+                  animationOut: ["animated", "fadeOut"], // animate.css classes that's applied
+                  dismiss: {
+                    duration: 3000
+                  }
+                });
+              }}
               disabled={isSubmitting}
             >
               Submit

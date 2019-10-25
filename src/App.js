@@ -16,7 +16,6 @@ import useLocalStorage from "./components/useLocalStorage";
 export function App(props) {
   const [storageEvent, setStorageEvent] = useLocalStorage("userEvents", []);
   const [addedEvent, setAddedEvent] = useLocalStorage("addedEvent", {});
-  console.log("props from add event", props);
   const [eventBody, setEventBody] = useState({
     eventId: uuid(),
     eventName: "",
@@ -39,8 +38,8 @@ export function App(props) {
       <Route
         path="/dashboard/add-event"
         render={props => (
-          <AddEvents 
-          {...props}
+          <AddEvents
+            {...props}
             storageEvent={storageEvent}
             setStorageEvent={setStorageEvent}
             addedEvent={addedEvent}
@@ -52,7 +51,14 @@ export function App(props) {
       />
       <Route
         path="/dashboard/event/:id"
-        render={props => <Event {...props} eventBody={eventBody} setEventBody={setEventBody} setStorageEvent={setStorageEvent} />}
+        render={props => (
+          <Event
+            {...props}
+            eventBody={eventBody}
+            setEventBody={setEventBody}
+            setStorageEvent={setStorageEvent}
+          />
+        )}
       />
     </div>
   );

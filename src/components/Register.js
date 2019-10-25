@@ -4,18 +4,14 @@ import uuid from "uuid";
 import corporate_logo from "../imgs/corporate_logo.png";
 import Axios from "axios";
 import Form from "./Form";
-import { store } from 'react-notifications-component';
-import register_back from "../imgs/register_back.jpg"
-
-
+import { store } from "react-notifications-component";
+import register_back from "../imgs/register_back.jpg";
 
 const RegisterStyle = styled.div`
-  background-image:
-url(${register_back});
+  background-image: url(${register_back});
   background-size: cover;
   width: 100vw;
   height: 100vh;
-  
 
   nav {
     display: flex;
@@ -29,7 +25,6 @@ url(${register_back});
     a {
       background-color: #090429;
       text-decoration: none;
-      /* border-radius: 5px; */
       width: 100px;
       height: 27px;
       text-align: center;
@@ -78,36 +73,35 @@ export default function Register(props) {
     if (formValues.password.length > 8 && formValues.password.length < 12) {
       Axios.post(
         "https://cors-anywhere.herokuapp.com/https://corporate-event-planner-build.herokuapp.com/api/auth/register",
-       { username:formValues.username, password: formValues.password}
-        )
+        { username: formValues.username, password: formValues.password }
+      )
         .then(response => {
-            store.addNotification({
-                title: "Success!",
-                message: "you have been registered",
-                type: 'success',                         // 'default', 'success', 'info', 'warning'
-                container: 'top-right',                // where to position the notifications
-                animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
-                animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
-                dismiss: {
-                  duration: 3000 
-                }
-              })
-          console.log("response from Register endpoint",response);
+          store.addNotification({
+            title: "Success!",
+            message: "you have been registered",
+            type: "success", // 'default', 'success', 'info', 'warning'
+            container: "top-right", // where to position the notifications
+            animationIn: ["animated", "fadeIn"], // animate.css classes that's applied
+            animationOut: ["animated", "fadeOut"], // animate.css classes that's applied
+            dismiss: {
+              duration: 3000
+            }
+          });
           props.history.push("/");
         })
         .catch(err => {
           store.addNotification({
             title: "Something went terribly wrong",
             message: err.message,
-            type: 'danger',                         // 'default', 'success', 'info', 'warning'
-            container: 'top-right',                // where to position the notifications
-            animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
-            animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+            type: "danger", // 'default', 'success', 'info', 'warning'
+            container: "top-right", // where to position the notifications
+            animationIn: ["animated", "fadeIn"], // animate.css classes that's applied
+            animationOut: ["animated", "fadeOut"], // animate.css classes that's applied
             dismiss: {
-              duration: 3000 
+              duration: 3000
             }
-          })
-          console.log("error from Register endpoint",err);
+          });
+          console.log("error from Register endpoint", err);
         });
     } else {
       setFormValues({ ...formValues, password: "" });
@@ -123,10 +117,7 @@ export default function Register(props) {
       </nav>
 
       <div>
-        {/* <img src={image} alt="for-register" /> */}
-
         <section>
-
           <Form
             onNameChange={onNameChange}
             onFormSubmit={onFormSubmit}

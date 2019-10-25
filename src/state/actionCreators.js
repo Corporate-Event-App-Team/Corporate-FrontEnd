@@ -15,7 +15,6 @@ export const onLogin = (userDetails, props) => dispatch => {
       userDetails
     )
     .then(res => {
-      console.log("response from login endpoint", res);
       store.addNotification({
         title: "Login successful!",
         message: res.data.message,
@@ -34,7 +33,6 @@ export const onLogin = (userDetails, props) => dispatch => {
       props.history.push("/dashboard");
     })
     .catch(err => {
-      console.log("response from login endpoint", err);
       store.addNotification({
         title: "Something went terribly wrong",
         message: err.message,
@@ -60,9 +58,7 @@ export const getUser = props => dispatch => {
       "https://cors-anywhere.herokuapp.com/https://corporate-event-planner-build.herokuapp.com/api/users/"
     )
     .then(res => {
-      console.log("response from users endpoint", res);
       const loggedUser = res.data.find(user => user.username === props);
-      console.log("user who is logged in", props, loggedUser);
       dispatch({ type: types.GET_USER, payload: loggedUser });
     })
     .catch(err => {
@@ -77,17 +73,6 @@ export const showUserError = err => {
 
 export const showUser = props => {
   return { type: types.SHOW_USER, payload: props };
-  //   axiosWithAuth()
-  //     .get(
-  //       `https://cors-anywhere.herokuapp.com/https://corporate-event-planner-build.herokuapp.com/api/users/${props}/events`
-  //     )
-  //     .then(res => {
-  //       console.log("response from user event endpoint", res);
-  //     })
-  //     .catch(err => {
-  //       console.log("response from users endpoint", err);
-  //       dispatch(getUserError(err.message));
-  //     });
 };
 
 export const AddEventError = err => {
@@ -97,22 +82,6 @@ export const AddEventError = err => {
 export const AddEvent = (props, eventBody) => {
   props.history.push("/dashboard");
   return { type: types.ADD_EVENT, payload: eventBody };
-  //   axiosWithAuth()
-  //     .post(
-  //       `https://cors-anywhere.herokuapp.com/https://corporate-event-planner-build.herokuapp.com/api/events`,
-  //       {
-  //         description: "Director Retirement",
-  //         budget: "5000"
-  //       }
-  //     )
-  //     .then(res => {
-  //       console.log("response from add event endpoint", res);
-
-  //     })
-  //     .catch(err => {
-  //       console.log("response from add endpoint", eventBody, err);
-  //       dispatch(getUserError(err.message));
-  //     });
 };
 
 export const deleteEvent = (props, event, setStorageEvent) => {
