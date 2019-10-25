@@ -7,16 +7,16 @@ const FormStyle = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #01233F;
+  color: #01233f;
   background-color: white;
-  text-align:center;
+  text-align: center;
   h3 {
     margin-left: 1.7em;
   }
-   input {
+  input {
     height: 35px;
     width: 250px;
-    border: 1px solid #01233F;
+    border: 1px solid #01233f;
     margin-bottom: 20px;
     margin-left: 6em;
     margin-right: 1em;
@@ -33,15 +33,13 @@ const FormStyle = styled.form`
     background-color: #090429;
     color: white;
     &:hover {
-      background-color: #FFC038;
+      background-color: #ffc038;
     }
   }
 `;
 
 const Form = props => {
-  console.log("props from register form", props);
   const { onFormSubmit, formValues, onNameChange } = props;
-  //onPasswordChange, onCPasswordChange, onEmailChange
 
   return (
     <FormStyle>
@@ -52,45 +50,44 @@ const Form = props => {
         <br /> with ease. Fill in your information below
         <br /> to get started.
       </h3>
-        <input
-          type="text"
-          name="username"
-          onChange={onNameChange}
-          value={formValues.username}
-          placeholder="username"
-        />
-        <input
-          type="text"
-          name="email"
-          onChange={onNameChange}
-          value={formValues.email}
-          placeholder="email"
-        />
-        <input
-          type="text"
-          name="company"
-          onChange={onNameChange}
-          value={formValues.company}
-          placeholder="company"
-        />
-        <input
-          type="text"
-          name="role"
-          onChange={onNameChange}
-          value={formValues.role}
-          placeholder="role"
-        />
-        <input
-          type="password"
-          name="password"
-          onChange={onNameChange}
-          value={formValues.password}
-          placeholder="password"
-        />
+      <input
+        type="text"
+        name="username"
+        onChange={onNameChange}
+        value={formValues.username}
+        placeholder="username"
+      />
+      <input
+        type="text"
+        name="email"
+        onChange={onNameChange}
+        value={formValues.email}
+        placeholder="email"
+      />
+      <input
+        type="text"
+        name="company"
+        onChange={onNameChange}
+        value={formValues.company}
+        placeholder="company"
+      />
+      <input
+        type="text"
+        name="role"
+        onChange={onNameChange}
+        value={formValues.role}
+        placeholder="role"
+      />
+      <input
+        type="password"
+        name="password"
+        onChange={onNameChange}
+        value={formValues.password}
+        placeholder="password"
+      />
       <button onClick={e => onFormSubmit(e, formValues)}>REGISTER</button>
     </FormStyle>
   );
 };
 
 export default Form;
-

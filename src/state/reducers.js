@@ -1,6 +1,4 @@
 import * as types from "./actionTypes";
-// import uuid from "uuid";
-
 
 const initialToken = {
   token: "",
@@ -19,20 +17,6 @@ export const loginReducer = (state = initialToken, action) => {
       return state;
   }
 };
-
-// const initialEvents = {
-//   events: [
-//     {
-//       eventId: '',
-//       eventName: '',
-//       descriptionOfEvent: '',
-//       date: '',
-//       time: '',
-//       todoList: [],
-//       vendors: []
-//     }
-//   ]
-// }
 
 const initialEvent = {
   event: {}
@@ -74,7 +58,7 @@ export const userEventsReducer = (state = userEvents, action) => {
     case types.SHOW_USER:
       return {
         ...state,
-        events: [...state.events, action.payload],
+        events: [...state.events, action.payload]
       };
 
     case types.DELETE_EVENT:
@@ -88,9 +72,9 @@ export const userEventsReducer = (state = userEvents, action) => {
   }
 };
 
-const initialEditingState = { 
+const initialEditingState = {
   editing: false,
-  event: {} 
+  event: {}
 };
 
 export const editReducer = (state = initialEditingState, action) => {
@@ -98,8 +82,8 @@ export const editReducer = (state = initialEditingState, action) => {
     case types.EDIT_EVENT:
       return { ...state, editing: true };
 
-    case types.SET_EVENT: 
-    return { ...state, event: action.payload}
+    case types.SET_EVENT:
+      return { ...state, event: action.payload };
 
     default:
       return state;

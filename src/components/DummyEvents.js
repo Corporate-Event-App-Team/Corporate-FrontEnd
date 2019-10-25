@@ -6,13 +6,11 @@ const StyledDummyDiv = styled.div`
   font-size: 0.7em;
   line-height: 0.3em;
   display: flex;
-  /* justify-content: space-around; */
-  /* text-align: center; */
   margin: 0.6em;
   padding: 0.5em;
   background: white;
   border: 0.3em solid #fbab06;
-   width: 45vw; 
+  width: 45vw;
   margin-left: 10vw;
 `;
 const StyledDummyTextDiv = styled.div`
@@ -20,12 +18,9 @@ const StyledDummyTextDiv = styled.div`
   margin-top: 1em;
   justify-content: space-around;
   text-align: center;
-
 `;
 
 const DummyEvents = () => {
-  console.log("dummy event data", dummyEventData);
-
   return (
     <div>
       This is what your events will look like! Click Add events to track your
@@ -39,7 +34,7 @@ const DummyEvents = () => {
               src={event.pictures}
             />
             <StyledDummyTextDiv>
-              <div  style={{padding:"0.5em", margin:"0.5em"}}>
+              <div style={{ padding: "0.5em", margin: "0.5em" }}>
                 <h4>Event Name: {event.eventName}</h4>
                 <h4>Client: {event.client}</h4>
                 <h4>
@@ -48,23 +43,6 @@ const DummyEvents = () => {
                 <h4>Description: {event.description}</h4>
                 <h4>Budget: {event.budget}</h4>
               </div>
-              {/* <div style={{padding:"0.5em", margin:"0.5em"}}>
-                TodoList:{" "}
-                {event.todoList.map((todo, index) => (
-                  <h4 key={index}>
-                    {index + 1}. {todo}
-                  </h4>
-                ))}
-              </div>
-              <div style={{padding:"0.5em", margin:"0.5em"}}>
-                Vendors:{" "}
-                {event.vendors.map((vendor, index) => (
-                  <h4 key={index}>
-                    {index + 1}. {vendor}
-                  </h4>
-                ))}
-              </div>
-                 */}
             </StyledDummyTextDiv>
           </StyledDummyDiv>
         );
